@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import SwipeableContent from './SwipeableContent';
-import { getProjects } from '../services/api';
+import React, { useState, useEffect } from "react";
+import SwipeableContent from "./SwipeableContent";
+import { getProjects } from "../services/api";
+import Sidebar from "./Sidebar";
 
 const CivicPage = () => {
   const [projects, setProjects] = useState([]);
@@ -15,17 +16,22 @@ const CivicPage = () => {
   }, []);
 
   const handleLike = (project) => {
-    console.log('Liked project:', project);
+    console.log("Liked project:", project);
   };
 
   const handleDonate = (project) => {
-    console.log('Donated to project:', project);
+    console.log("Donated to project:", project);
   };
 
   return (
-    <div>
+    <div className="bg-black h-full">
+      <Sidebar />
       <h2>Civic Engagement</h2>
-      <SwipeableContent items={projects} onLike={handleLike} onDonate={handleDonate} />
+      <SwipeableContent
+        items={projects}
+        onLike={handleLike}
+        onDonate={handleDonate}
+      />
     </div>
   );
 };
