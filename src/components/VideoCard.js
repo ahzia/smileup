@@ -3,18 +3,19 @@ import video1 from "../videos/video1.mp4";
 
 import useIsInViewport from "../hooks/useIsInViewport";
 import Sidebar from "./Sidebar";
-
+import AIChat from "./AIChat";
 const VideoCard = ({
     index,
     author,
     videoURL,
-    authorLink,
+    authorImg,
     lastVideoIndex,
     getVideos,
 }) => {
     const video = useRef();
     const isInViewport = useIsInViewport(video);
     const [loadNewVidsAt, setloadNewVidsAt] = useState(lastVideoIndex);
+    const [aiChatOpen, setAiChatOpen] = useState(false);
 
     if (isInViewport) {
         setTimeout(() => {
@@ -44,7 +45,8 @@ const VideoCard = ({
 
     return (
         <div className="slider-children h-full">
-            <Sidebar />
+            <Sidebar aiChatOpen={aiChatOpen} setAiChatOpen={setAiChatOpen} />
+            <AIChat aiChatOpen={aiChatOpen} setAiChatOpen={setAiChatOpen} />
             <video
                 muted
                 ref={video}
