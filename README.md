@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# SmileUP App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the SmileUP Donation App! Our app makes it easier and more engaging to donate to various causes. Users can scroll through donation opportunities, like the ones they care about, and immediately donate using tokens called Smiles. Users can earn Smiles by participating in community services or other tasks.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## Hackathon Participation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is currently being developed as part of a hackathon. We aim to create an innovative solution to simplify and gamify the donation process. Your feedback and contributions are highly appreciated during this phase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **TikTok-style Scrolling:** Scroll through donation opportunities effortlessly.
+- **Instant Donations:** Like a donation to instantly contribute Smiles.
+- **Earn Smiles:** Participate in community services and tasks to earn Smiles.
+- **Leaderboard:** Compare and compete with others to stay motivated.
+- **User Profile:** Track your stats, saved donations, and more.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+(Chill maybe later we will include screenshots of our app here to give a visual overview)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- [Node.js](https://nodejs.org/) (version >= 20.x)
+- [npm](https://www.npmjs.com/) (version >= 10.x)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/smiles-donation-app.git
+   ```
+2. Navigate to the project directory:
+    ```bash
+    cd smiles-donation-app
+    ```
+3. Install the dependencies:
+    ```bash
+    cd smiles-donation-app
+    ```
+4. Start the development server::
+    ```bash
+    npm start
+    ```
+3. Install the dependencies:
+    ```bash
+    cd smiles-donation-app
+    ```
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Explore Donations:** Scroll through various donation opportunities.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Donate Smiles:** Like a donation to contribute Smiles.
 
-## Learn More
+3. **Earn Smiles:** Complete community services or tasks to earn more Smiles.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Leaderboard:** Check out the leaderboard to see top donors.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Profile:** View your donation history, saved donations, and stats.
 
-### Code Splitting
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We welcome contributions from the community! Here’s how you can help:
 
-### Analyzing the Bundle Size
+1. Fork the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Create a new branch (`git checkout -b feature-branch`).
 
-### Making a Progressive Web App
+3. Make your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Commit your changes (`git commit -m 'Add some feature'`).
 
-### Advanced Configuration
+5. Push to the branch (`git push origin feature-branch`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Create a new Pull Request.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
