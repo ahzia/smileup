@@ -1,48 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { getProjects } from '../services/api';
+import React, { useState, useEffect } from "react";
+import { getProjects } from "../services/api";
 import VideoCard from "./VideoCard";
 import video1 from "../videos/video1.mp4";
 import video2 from "../videos/video2.mp4";
+import ScoreBoard from "./ScoreBoard";
 
 const SmilePage = () => {
-  const [videos, setvideos] = useState([
+  const [videos, setVideos] = useState([
     {
+      id: 1,
       user: {
         name: "John Doe",
-        // random user victor img
-        img: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video1
-        }
-      ]
+          link: video1,
+        },
+      ],
+      liked: false,
+      saved: false,
     },
     {
+      id: 2,
       user: {
         name: "Jane Smith",
-        url: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video2
-        }
-      ]
+          link: video2,
+        },
+      ],
+      liked: false,
+      saved: false,
     },
     {
+      id: 3,
       user: {
         name: "John Doe",
-        url: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video1
-        }
-      ]
+          link: video1,
+        },
+      ],
+      liked: false,
+      saved: false,
     },
   ]);
   const [videosLoaded, setvideosLoaded] = useState(true);
   const [projects, setProjects] = useState([]);
+  const [smileCoin, setSmileCoin] = useState(2000);
+  const [totalStars, setTotalStars] = useState(10000);
 
   // const randomQuery = () => {
   //   const queries = ["Food", "Random", "Business", "Travel"];
@@ -74,8 +85,30 @@ const SmilePage = () => {
     fetchProjects();
   }, []);
 
-  const handleLike = (project) => {
-    console.log("Liked project:", project);
+  const handleLike = (id) => {
+    setVideos(
+      videos.map((video) => {
+        if (video.id === id) {
+          const newLikedStatus = !video.liked;
+          setSmileCoin(smileCoin + (newLikedStatus ? -1 : 1));
+          setTotalStars(totalStars + (newLikedStatus ? 200 : -200));
+          return { ...video, liked: newLikedStatus };
+        }
+        return video;
+      })
+    );
+  };
+
+  const handleSave = (id) => {
+    setVideos(
+      videos.map((video) => {
+        if (video.id === id) {
+          const newSavedStatus = !video.saved;
+          return { ...video, saved: newSavedStatus };
+        }
+        return video;
+      })
+    );
   };
 
   const handleDonate = (project) => {
@@ -85,9 +118,10 @@ const SmilePage = () => {
   // const handleDonate = (project) => {
   //   console.log('Donated to project:', project);
   // };
-  const getVideos = () => { };
+  const getVideos = () => {};
   return (
-    <div className="bg-black h-[calc(100vh-60px)]">
+    <div className="bg-black h-[calc(100vh-60px)] relative">
+      <ScoreBoard smileCoin={smileCoin} totalStars={totalStars} />
       {videosLoaded && videos.length > 0 ? (
         <>
           {videos.map((video, id) => (
@@ -98,7 +132,11 @@ const SmilePage = () => {
               videoURL={video.video_files[0].link}
               authorImg={video.user.url}
               lastVideoIndex={videos.length - 1}
-            // getVideos={getVideos}
+              liked={video.liked}
+              handleLike={handleLike}
+              handleSave={handleSave}
+              videoId={video.id}
+              saved={video.saved}
             />
           ))}
         </>

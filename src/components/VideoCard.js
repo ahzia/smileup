@@ -11,6 +11,11 @@ const VideoCard = ({
     authorLink,
     lastVideoIndex,
     getVideos,
+    handleLike,
+    handleSave,
+    videoId,
+    liked,
+    saved,
 }) => {
     const video = useRef();
     const isInViewport = useIsInViewport(video);
@@ -44,7 +49,7 @@ const VideoCard = ({
 
     return (
         <div className="slider-children h-full">
-            <Sidebar />
+            <Sidebar handleLike={handleLike} videoId={videoId} liked={liked} saved={saved} handleSave={handleSave} />
             <video
                 muted
                 ref={video}

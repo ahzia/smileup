@@ -1,11 +1,20 @@
 import { FaSmile, FaRobot, FaShare, FaBookmark } from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({
+  videoId,
+  handleLike,
+  liked,
+  saved,
+  handleSave,
+}) {
   return (
-    <div className="absolute right-0 h-screen z-8">
+    <div className="absolute right-0 h-screen z-20">
       <ul className="flex flex-col items-center h-full justify-end pb-32 gap-y-10 text-5xl p-2 text-white">
         <li className="flex flex-col items-center justify-center">
-          <FaSmile />
+          <FaSmile
+            className={liked ? "text-yellow-400" : ""}
+            onClick={() => handleLike(videoId)}
+          />
           <span className="text-xl">Smile</span>
         </li>
         <li className="flex flex-col items-center justify-center">
@@ -13,7 +22,10 @@ export default function Sidebar() {
           <span className="text-xl">Ai Chat</span>
         </li>
         <li className="flex flex-col items-center justify-center">
-          <FaBookmark />
+          <FaBookmark
+            className={saved ? "text-yellow-400" : ""}
+            onClick={() => handleSave(videoId)}
+          />
           <span className="text-xl">Save</span>
         </li>
         <li className="flex flex-col items-center justify-center">
