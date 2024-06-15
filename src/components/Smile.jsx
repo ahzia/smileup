@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import SwipeableContent from './SwipeableContent';
 import { getProjects } from '../services/api';
 import VideoCard from "./VideoCard";
-import { createClient } from "pexels";
 import video1 from "../videos/video1.mp4";
 import video2 from "../videos/video2.mp4";
 
@@ -11,7 +9,8 @@ const SmilePage = () => {
     {
       user: {
         name: "John Doe",
-        url: "https://www.google.com"
+        // random user victor img
+        img: "https://randomuser.me/api/portraits"
       },
       video_files: [
         {
@@ -22,7 +21,7 @@ const SmilePage = () => {
     {
       user: {
         name: "Jane Smith",
-        url: "https://www.google.com"
+        url: "https://randomuser.me/api/portraits"
       },
       video_files: [
         {
@@ -33,7 +32,7 @@ const SmilePage = () => {
     {
       user: {
         name: "John Doe",
-        url: "https://www.google.com"
+        url: "https://randomuser.me/api/portraits"
       },
       video_files: [
         {
@@ -75,16 +74,20 @@ const SmilePage = () => {
     fetchProjects();
   }, []);
 
-  // const handleLike = (project) => {
-  //   console.log('Liked project:', project);
-  // };
+  const handleLike = (project) => {
+    console.log("Liked project:", project);
+  };
+
+  const handleDonate = (project) => {
+    console.log("Donated to project:", project);
+  };
 
   // const handleDonate = (project) => {
   //   console.log('Donated to project:', project);
   // };
   const getVideos = () => { };
   return (
-    <div className="slider-container">
+    <div className="bg-black h-[calc(100vh-60px)]">
       {videosLoaded && videos.length > 0 ? (
         <>
           {videos.map((video, id) => (
@@ -93,7 +96,7 @@ const SmilePage = () => {
               index={id}
               author={video.user.name}
               videoURL={video.video_files[0].link}
-              authorLink={video.user.url}
+              authorImg={video.user.url}
               lastVideoIndex={videos.length - 1}
             // getVideos={getVideos}
             />
