@@ -1,68 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { getProjects } from '../services/api';
+import React, { useState, useEffect } from "react";
+import { getProjects } from "../services/api";
 import VideoCard from "./VideoCard";
 import video1 from "../videos/video1.mp4";
 import video2 from "../videos/video2.mp4";
+import ScoreBoard from "./ScoreBoard";
+import AIChat from "./AIChat";
 const SmilePage = () => {
-  const [videos, setvideos] = useState([
+  const [videos, setVideos] = useState([
     {
+      id: 1,
       user: {
         name: "John Doe",
-        // random user victor img
-        img: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video1
-        }
-      ]
+          link: video1,
+        },
+      ],
+      liked: false,
+      saved: false,
+      title: "cleaning the ocean",
+      description: "We are planning to clean the beach in Bon germany and we need your support, smile up and support us.",
     },
     {
+      id: 2,
       user: {
         name: "Jane Smith",
-        url: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video2
-        }
-      ]
+          link: video2,
+        },
+      ],
+      liked: false,
+      saved: false,
+      title: "cleaning the the warsaw city",
+      description: "We are planning the clean the warsaw city from wastes and we need your support, smile up and support us.",
     },
     {
+      id: 3,
       user: {
         name: "John Doe",
-        url: "https://randomuser.me/api/portraits"
+        img: "https://randomuser.me/api/portraits",
       },
       video_files: [
         {
-          link: video1
-        }
-      ]
+          link: video1,
+        },
+      ],
+      liked: false,
+      saved: false,
+      title: "cleaning the ocean",
+      description: "We are planning to clean the beach in Bon germany and we need your support, smile up and support us.",
     },
   ]);
   const [videosLoaded, setvideosLoaded] = useState(true);
   const [projects, setProjects] = useState([]);
-
-  // const randomQuery = () => {
-  //   const queries = ["Food", "Random", "Business", "Travel"];
-  //   return queries[Math.floor(Math.random() * queries.length)];
-  // };
-
-  // const getVideos = (length) => {
-  //   const client = createClient("CxDfjTrPRO0IYT8xs8o7hyltVkqFpcjPnlQzT6GxdbE0f59VWpialhuM");
-
-  //   const query = randomQuery();
-  //   client.videos
-  //     .search({ query, per_page: length })
-  //     .then((result) => {
-  //       setvideos((oldVideos) => [...oldVideos, ...result.videos]);
-  //       setvideosLoaded(true);
-  //     })
-  //     .catch((e) => setvideosLoaded(false));
-  // };
-  // useEffect(() => {
-  //   getVideos(3);
-  // }, []);
+  const [smileCoin, setSmileCoin] = useState(2000);
+  const [totalStars, setTotalStars] = useState(10000);
+  const [aiChatOpen, setAiChatOpen] = useState(false);
+  const [aiChatVideoId, setAiChatVideoId] = useState(null);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -73,20 +72,37 @@ const SmilePage = () => {
     fetchProjects();
   }, []);
 
-  const handleLike = (project) => {
-    console.log("Liked project:", project);
+  const handleLike = (id) => {
+    setVideos(
+      videos.map((video) => {
+        if (video.id === id) {
+          const newLikedStatus = !video.liked;
+          setSmileCoin(smileCoin + (newLikedStatus ? -1 : 1));
+          setTotalStars(totalStars + (newLikedStatus ? 200 : -200));
+          return { ...video, liked: newLikedStatus };
+        }
+        return video;
+      })
+    );
   };
 
-  const handleDonate = (project) => {
-    console.log("Donated to project:", project);
+  const handleSave = (id) => {
+    setVideos(
+      videos.map((video) => {
+        if (video.id === id) {
+          const newSavedStatus = !video.saved;
+          return { ...video, saved: newSavedStatus };
+        }
+        return video;
+      })
+    );
   };
 
-  // const handleDonate = (project) => {
-  //   console.log('Donated to project:', project);
-  // };
-  const getVideos = () => { };
+  const getVideos = () => {};
   return (
-    <div className="bg-black h-[calc(100vh-60px)]">
+    <div className="bg-black h-[calc(100vh-60px)] relative">
+      <AIChat aiChatOpen={aiChatOpen} setAiChatOpen={setAiChatOpen} aiChatVideoId={aiChatVideoId} videosData={videos} />
+      <ScoreBoard smileCoin={smileCoin} totalStars={totalStars} />
       {videosLoaded && videos.length > 0 ? (
         <>
           {videos.map((video, id) => (
@@ -97,7 +113,14 @@ const SmilePage = () => {
               videoURL={video.video_files[0].link}
               authorImg={video.user.url}
               lastVideoIndex={videos.length - 1}
-            // getVideos={getVideos}
+              liked={video.liked}
+              handleLike={handleLike}
+              handleSave={handleSave}
+              videoId={video.id}
+              saved={video.saved}
+              aiChatOpen={aiChatOpen}
+              setAiChatOpen={setAiChatOpen}
+              setAiChatVideoId={setAiChatVideoId}
             />
           ))}
         </>
