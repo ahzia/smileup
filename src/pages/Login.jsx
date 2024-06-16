@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
-import { auth } from '../services/firebase.mjs';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React from 'react'
+import loginImage from "../components/assets/image/login.png"
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error('Error logging in', error);
-    }
-  };
-
+  const RespponsiveImage = {
+    height : "auto",
+    width: "100%"
+  }
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div style={RespponsiveImage}>
+      <img style={RespponsiveImage} src={loginImage} alt='login'/>
     </div>
-  );
-};
+  )
+}
 
 export default Login;
