@@ -30,7 +30,6 @@ Location: Selected regions in Sub-Saharan Africa, including rural communities in
 Overview:
 “Water for Life - Addressing Water Scarcity in Africa” is a six-month initiative aimed at providing sustainable solutions to water scarcity in Sub-Saharan Africa. From October 1, 2024, to October  31, 2025, we will work with local communities to improve access to clean water through infrastructure development, education, and community engagement.`,
     },
-    ,
     {
       id: 2,
       user: {
