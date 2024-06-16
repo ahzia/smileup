@@ -4,13 +4,14 @@ Welcome to the SmileUP Donation App! Our app makes it easier and more engaging t
 
 ## Table of Contents
 
-- [Features](#features)
+- [Hackathon Participation](#hackathon-participation)
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
 - [Usage](#usage)
+- [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ## Hackathon Participation
 
