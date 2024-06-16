@@ -1,24 +1,17 @@
-import React from 'react';
+import React from 'react'
+import leaderboardImage from "../components/assets/image/leaderbopard.png"
 
 const LeaderboardPage = () => {
-  const leaders = [
-    { name: 'John Doe', score: 120 },
-    { name: 'Jane Smith', score: 100 },
-    { name: 'Alice Johnson', score: 90 },
-  ];
-
+    const RespponsiveImage = {
+      height : "auto",
+      width: "100%"
+    }
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul>
-        {leaders.map((leader, index) => (
-          <li key={index}>
-            {index + 1}. {leader.name} - {leader.score} Smile Tokens
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <div style={RespponsiveImage}>
+    <img style={RespponsiveImage} src={leaderboardImage} alt='signup' />
+  </div>
+  )
+}
+
 
 export default LeaderboardPage;
