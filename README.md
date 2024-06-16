@@ -41,24 +41,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/smiles-donation-app.git
+   git clone https://github.com/ahzia/smileup.git
    ```
 2. Navigate to the project directory:
     ```bash
-    cd smiles-donation-app
+    cd smileup
     ```
 3. Install the dependencies:
     ```bash
-    cd smiles-donation-app
+    npm install
     ```
 4. Start the development server::
     ```bash
     npm start
     ```
-3. Install the dependencies:
-    ```bash
-    cd smiles-donation-app
-    ```
+    
 ## Usage
 
 1. **Explore Donations:** Scroll through various donation opportunities.
