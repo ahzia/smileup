@@ -44,7 +44,7 @@ These instructions will get you a copy of the project up and running on your loc
    ```bash
    git clone https://github.com/ahzia/smileup.git
    ```
-2. Navigate to the project directory:
+2. Navigate to the project directory and change your env:
     ```bash
     cd smileup
     ```
